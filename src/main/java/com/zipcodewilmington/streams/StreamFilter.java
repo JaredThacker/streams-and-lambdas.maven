@@ -15,12 +15,11 @@ import java.util.stream.Stream;
 public class StreamFilter {
     private final Stream<Person> personStream;
     public final String startingCharacter;
-
     /**
      * No arg constructor
      */ //TODO - construct person stream of 100 person objects; startingCharacter is a random capital letter
     public StreamFilter() {
-        this(Stream.empty(), null);
+        this(Stream.empty(),null);
     }
 
     /**
@@ -55,7 +54,7 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        return null;
+        return personStream.filter(e -> e.getName().substring(0,1) == this.startingCharacter).collect(Collectors.toList());
     }
 
 
