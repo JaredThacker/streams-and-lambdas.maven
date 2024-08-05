@@ -73,9 +73,7 @@ public final class PersonWarehouse implements Iterable<Person> {
      */ // TODO
     public Map<Long, String> getIdToNameMap() {
         HashMap<Long, String> idToName = new HashMap<>();
-        for (Person p : people) {
-            idToName.put(p.getPersonalId(), p.getName());
-        }
+        people.stream().forEach(p -> idToName.put(p.getPersonalId(), p.getName()));
         return idToName;
     }
 
