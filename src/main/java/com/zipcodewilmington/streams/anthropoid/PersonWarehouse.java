@@ -36,11 +36,7 @@ public final class PersonWarehouse implements Iterable<Person> {
      * @return list of names of Person objects
      */ // TODO
     public List<String> getNames() {
-        List<String> names = new ArrayList<>();
-        for (Person p : people){
-            names.add(p.getName());
-        }
-        return names;
+        return people.stream().map(e -> e.getName()).collect(Collectors.toList());
     }
 
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {

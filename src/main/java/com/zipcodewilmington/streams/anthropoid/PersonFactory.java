@@ -4,9 +4,11 @@ import com.zipcodewilmington.streams.tools.RandomUtils;
 import com.zipcodewilmington.streams.tools.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -41,11 +43,7 @@ public final class PersonFactory {
      * @return - ArrayList of Person objects
      */ // TODO
     public List<Person> createPersonList(int listSize) {
-       List<Person> personList = new ArrayList<Person>(listSize);
-       for (int i = 0; i<listSize; i++){
-           personList.add(createRandomPerson());
-       }
-       return personList;
+       return Stream.generate(this::createRandomPerson).limit(listSize).collect(Collectors.toList());
     }
 
 
@@ -54,11 +52,7 @@ public final class PersonFactory {
      * @return - Array of Person objects
      */ // TODO
     public Person[] createPersonArray(int arrayLength) {
-        Person[] persons = new Person[arrayLength];
-        for (int i = 0; i < arrayLength; i++){
-            persons[i] = createRandomPerson();
-        }
-        return persons;
+        return Stream.generate(this::createRandomPerson).limit(arrayLength).toArray(Person[]::new);
     }
 
 
