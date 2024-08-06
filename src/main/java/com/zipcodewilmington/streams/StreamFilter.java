@@ -74,8 +74,8 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-//        return personStream.filter(e -> e.getName().substring(0,1) == this.startingCharacter).collect(Collectors.toList());
-        return personStream.filter(p -> p.getName().startsWith(this.startingCharacter)).collect(Collectors.toList());
+        return personStream.filter(e -> e.getName().substring(0,1) == this.startingCharacter).collect(Collectors.toList());
+//        return personStream.filter(p -> p.getName().startsWith(this.startingCharacter)).collect(Collectors.toList());
     }
 
 
